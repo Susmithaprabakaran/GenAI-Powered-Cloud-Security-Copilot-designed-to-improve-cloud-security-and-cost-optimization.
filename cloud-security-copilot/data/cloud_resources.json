@@ -1,0 +1,182 @@
+{
+  "virtual_machines": [
+    {
+      "id": "vm-001", "name": "prod-web-server-01", "region": "us-east-1",
+      "owner": "team-backend", "environment": "production",
+      "status": "running", "instance_type": "m5.large",
+      "monthly_cost_usd": 140, "cpu_usage_percent": 4,
+      "last_used_days": 0, "port_22_open": true, "port_3389_open": false,
+      "port_80_open": true, "port_443_open": true,
+      "encryption_enabled": false, "public_ip": true,
+      "mfa_enabled": false, "backup_enabled": false, "os": "Ubuntu 20.04"
+    },
+    {
+      "id": "vm-002", "name": "dev-test-server-02", "region": "us-west-2",
+      "owner": "team-devops", "environment": "development",
+      "status": "stopped", "instance_type": "t2.medium",
+      "monthly_cost_usd": 45, "cpu_usage_percent": 0,
+      "last_used_days": 52, "port_22_open": true, "port_3389_open": false,
+      "port_80_open": false, "port_443_open": false,
+      "encryption_enabled": true, "public_ip": false,
+      "mfa_enabled": true, "backup_enabled": false, "os": "Amazon Linux 2"
+    },
+    {
+      "id": "vm-003", "name": "ml-training-gpu-03", "region": "ap-south-1",
+      "owner": "team-ml", "environment": "staging",
+      "status": "idle", "instance_type": "c5.2xlarge",
+      "monthly_cost_usd": 350, "cpu_usage_percent": 3,
+      "last_used_days": 38, "port_22_open": true, "port_3389_open": true,
+      "port_80_open": false, "port_443_open": false,
+      "encryption_enabled": false, "public_ip": true,
+      "mfa_enabled": false, "backup_enabled": true, "os": "Windows Server 2019"
+    },
+    {
+      "id": "vm-004", "name": "analytics-worker-04", "region": "eu-west-1",
+      "owner": "team-data", "environment": "production",
+      "status": "running", "instance_type": "m5.xlarge",
+      "monthly_cost_usd": 280, "cpu_usage_percent": 62,
+      "last_used_days": 0, "port_22_open": false, "port_3389_open": false,
+      "port_80_open": true, "port_443_open": true,
+      "encryption_enabled": true, "public_ip": false,
+      "mfa_enabled": true, "backup_enabled": true, "os": "Ubuntu 20.04"
+    },
+    {
+      "id": "vm-005", "name": "staging-app-server-05", "region": "us-east-1",
+      "owner": "team-frontend", "environment": "staging",
+      "status": "idle", "instance_type": "t2.large",
+      "monthly_cost_usd": 90, "cpu_usage_percent": 2,
+      "last_used_days": 41, "port_22_open": true, "port_3389_open": false,
+      "port_80_open": true, "port_443_open": false,
+      "encryption_enabled": false, "public_ip": true,
+      "mfa_enabled": false, "backup_enabled": false, "os": "CentOS 7"
+    }
+  ],
+  "storage_buckets": [
+    {
+      "id": "s3-001", "name": "prod-customer-data-bucket", "region": "us-east-1",
+      "owner": "team-backend", "environment": "production",
+      "status": "active", "size_gb": 2400, "monthly_cost_usd": 55.2,
+      "last_used_days": 0,
+      "public_read": true, "public_write": false,
+      "versioning": false, "encryption_enabled": false,
+      "logging_enabled": false, "lifecycle_policy": false
+    },
+    {
+      "id": "s3-002", "name": "ml-training-datasets", "region": "us-west-2",
+      "owner": "team-ml", "environment": "staging",
+      "status": "active", "size_gb": 8500, "monthly_cost_usd": 195.5,
+      "last_used_days": 75,
+      "public_read": false, "public_write": false,
+      "versioning": true, "encryption_enabled": false,
+      "logging_enabled": false, "lifecycle_policy": false
+    },
+    {
+      "id": "s3-003", "name": "backup-archive-2022", "region": "eu-west-1",
+      "owner": "team-devops", "environment": "production",
+      "status": "active", "size_gb": 500, "monthly_cost_usd": 11.5,
+      "last_used_days": 180,
+      "public_read": false, "public_write": false,
+      "versioning": false, "encryption_enabled": true,
+      "logging_enabled": true, "lifecycle_policy": false
+    },
+    {
+      "id": "s3-004", "name": "dev-uploads-temp", "region": "ap-south-1",
+      "owner": "team-frontend", "environment": "development",
+      "status": "active", "size_gb": 120, "monthly_cost_usd": 2.76,
+      "last_used_days": 90,
+      "public_read": true, "public_write": true,
+      "versioning": false, "encryption_enabled": false,
+      "logging_enabled": false, "lifecycle_policy": false
+    }
+  ],
+  "databases": [
+    {
+      "id": "db-001", "name": "prod-mysql-customer", "region": "us-east-1",
+      "owner": "team-backend", "environment": "production",
+      "status": "active", "engine": "MySQL",
+      "monthly_cost_usd": 115, "last_used_days": 0,
+      "publicly_accessible": true, "encryption_enabled": false,
+      "multi_az": false, "backup_retention_days": 3,
+      "ssl_enforced": false, "auto_minor_upgrade": true
+    },
+    {
+      "id": "db-002", "name": "analytics-postgres", "region": "eu-west-1",
+      "owner": "team-data", "environment": "production",
+      "status": "active", "engine": "PostgreSQL",
+      "monthly_cost_usd": 200, "last_used_days": 0,
+      "publicly_accessible": false, "encryption_enabled": true,
+      "multi_az": true, "backup_retention_days": 35,
+      "ssl_enforced": true, "auto_minor_upgrade": true
+    },
+    {
+      "id": "db-003", "name": "dev-redis-cache", "region": "us-west-2",
+      "owner": "team-devops", "environment": "development",
+      "status": "idle", "engine": "Redis",
+      "monthly_cost_usd": 35, "last_used_days": 25,
+      "publicly_accessible": false, "encryption_enabled": false,
+      "multi_az": false, "backup_retention_days": 0,
+      "ssl_enforced": false, "auto_minor_upgrade": false
+    },
+    {
+      "id": "db-004", "name": "ml-feature-store", "region": "ap-south-1",
+      "owner": "team-ml", "environment": "staging",
+      "status": "active", "engine": "MongoDB",
+      "monthly_cost_usd": 80, "last_used_days": 5,
+      "publicly_accessible": true, "encryption_enabled": false,
+      "multi_az": false, "backup_retention_days": 7,
+      "ssl_enforced": false, "auto_minor_upgrade": true
+    }
+  ],
+  "security_groups": [
+    {
+      "id": "sg-001", "name": "sg-prod-web-open", "region": "us-east-1",
+      "owner": "team-devops", "environment": "production",
+      "status": "active", "monthly_cost_usd": 0, "last_used_days": 0,
+      "inbound_all_open": true, "outbound_all_open": true,
+      "ssh_from_anywhere": true, "rdp_from_anywhere": false,
+      "attached_resources": 3, "unused": false
+    },
+    {
+      "id": "sg-002", "name": "sg-dev-orphaned", "region": "us-west-2",
+      "owner": "team-devops", "environment": "development",
+      "status": "active", "monthly_cost_usd": 0, "last_used_days": 60,
+      "inbound_all_open": false, "outbound_all_open": false,
+      "ssh_from_anywhere": false, "rdp_from_anywhere": false,
+      "attached_resources": 0, "unused": true
+    },
+    {
+      "id": "sg-003", "name": "sg-windows-rdp-all", "region": "ap-south-1",
+      "owner": "team-ml", "environment": "staging",
+      "status": "active", "monthly_cost_usd": 0, "last_used_days": 2,
+      "inbound_all_open": false, "outbound_all_open": true,
+      "ssh_from_anywhere": false, "rdp_from_anywhere": true,
+      "attached_resources": 2, "unused": false
+    }
+  ],
+  "iam_roles": [
+    {
+      "id": "iam-001", "name": "role-prod-admin-full", "region": "global",
+      "owner": "team-devops", "environment": "production",
+      "status": "active", "monthly_cost_usd": 0, "last_used_days": 1,
+      "admin_access": true, "mfa_required": false,
+      "inline_policies": 4, "attached_policies": 1,
+      "wildcard_actions": true, "cross_account": false, "unused_days": 1
+    },
+    {
+      "id": "iam-002", "name": "role-ml-s3-read", "region": "global",
+      "owner": "team-ml", "environment": "staging",
+      "status": "active", "monthly_cost_usd": 0, "last_used_days": 120,
+      "admin_access": false, "mfa_required": true,
+      "inline_policies": 1, "attached_policies": 2,
+      "wildcard_actions": false, "cross_account": false, "unused_days": 120
+    },
+    {
+      "id": "iam-003", "name": "role-backend-wildcard", "region": "global",
+      "owner": "team-backend", "environment": "production",
+      "status": "active", "monthly_cost_usd": 0, "last_used_days": 0,
+      "admin_access": false, "mfa_required": false,
+      "inline_policies": 3, "attached_policies": 5,
+      "wildcard_actions": true, "cross_account": true, "unused_days": 0
+    }
+  ]
+}
